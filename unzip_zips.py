@@ -1,3 +1,8 @@
+"""
+The script takes all .zip files in the current working directory and
+unzips in the directory.
+"""
+
 from glob import glob
 import zipfile
 import sys
