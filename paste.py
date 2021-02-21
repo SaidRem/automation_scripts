@@ -1,3 +1,9 @@
+"""
+The script works in command line.
+Takes one command line argument and places the data
+from the dictionary 'DATA' on the clipboard.
+""" 
+
 import sys
 import pyperclip
 
