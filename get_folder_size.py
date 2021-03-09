@@ -4,7 +4,6 @@ import os
 def get_folder_size(path_to_folder):
     """
     Total size of the folder.
-    One argument: path_to_folder.
     """
     total_size = 0
     for filename in os.listdir(path_to_folder):
