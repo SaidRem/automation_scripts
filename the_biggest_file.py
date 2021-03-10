@@ -1,3 +1,10 @@
+import sys
+
+print(sys.argv, len(sys.argv))
+input()
+
+
+
 # TODO
 # The func can recieve a file path from sys.argv or clipboard
 # The func can recieve file extension to find only among that files
