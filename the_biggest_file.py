@@ -1,7 +1,13 @@
 import sys
+import os
 
-print(sys.argv, len(sys.argv))
-input()
+files_list = []
+
+for cur_dir, sub_dirs, cur_files in os.walk(file_path):
+    for f in cur_files:
+        full_path = os.path.join(cour_dir, f)
+        size_f = os.path.getsize(full_path)
+        files_list.append((full_path, size_f))
 
 
 
