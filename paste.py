@@ -1,13 +1,13 @@
 """
 The script works in command line.
-Takes one command line argument and places the data
-from the dictionary 'DATA' on the clipboard.
+Takes one command line argument after the script name for key in DATA
+and retrieves by the key the data in DATA dict and places the data to the clipboard.
 """ 
 
 import sys
 import pyperclip
 
-DATA = {'t1': 'data1', # TODO replace 't' keys and 'data' by useful data
+DATA = {'t1': 'data1', # replace 't' keys and 'data' by useful data
         't2': 'data2',
         't3': 'data3',
         't4': 'data4',
