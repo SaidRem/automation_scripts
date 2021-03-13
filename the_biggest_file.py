@@ -3,11 +3,23 @@ import os
 
 files_list = []
 
-for cur_dir, sub_dirs, cur_files in os.walk(file_path):
-    for f in cur_files:
-        full_path = os.path.join(cour_dir, f)
-        size_f = os.path.getsize(full_path)
-        files_list.append((full_path, size_f))
+def bigfile(p):
+    for cur_dir, sub_dirs, cur_files in os.walk(p):
+        for f in cur_files:
+            full_path = os.path.join(cur_dir, f)
+            size_f = os.path.getsize(full_path)
+            files_list.append((full_path, size_f))
+            files_list.sort(key=lambda x: x[1], reverse=True)
+    return files_list
+
+
+if __name__ == "__main__":
+    path_folder = input('Enter path to folder => ')
+    flist = bigfile(path_folder)
+    print(flist[:5])
+    print()
+    print(flist[-5:])
+        
 
 
 
