@@ -1,0 +1,1 @@
+In this folder scripts that work with clipboard.
