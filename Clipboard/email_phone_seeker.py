@@ -1,3 +1,6 @@
+# The script finds phone number in clipboard text.
+# All found phone numbers copy to the clipboard.
+
 import pyperclip
 import re
 
