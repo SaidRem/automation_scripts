@@ -3,15 +3,21 @@
 import os
 import openpyxl
 import re
+import csv
 from pathlib import Path
 
-def excel_to_csv(cur_dir='.'):
+def excel_to_csv(path_to_dir='.'):
+    os.makedirs('excel_to_pdf', exist_ok=True)
     pat = re.compile('.*(.xlsx)$')
-    for excel_file in filter(pat.match, os.listdir(cur_dir)):
-        wb = openpyxl.load_workbook(excel_file)
-        for sheet_name in wb.sheetNames:
+
+    for excel_file in filter(pat.match, os.listdir(path_to_dir)):
+        path_to_file = Path(path_to_dir, excel_file)
+        wb = openpyxl.load_workbook(path_to_file)
+        # Loop through every sheet in the workbook.
+        for sheet_name in wb.sheetnames:
             sheet = wb[sheet_name]
-# TODO: Create csv filename form excel filename and sheet title
-# TODO: Create csv file obj for writing in.
-# TODO: Loop over each cell in excel file
-# TODO: Write all data to csv obj and save
+            csv_filename = Path(excel_file).stem + '_' + sheet_name + '.csv'
+            with open(Path('excel_to_pdf', csv_filename), 'w', newline='') as csv_file:
+                csv_obj = csv.writer(csv_file)
+                for row in sheet:
+                    csv_obj.writerow([d.value for d in row])
